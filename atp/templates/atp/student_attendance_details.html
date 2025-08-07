@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Attendance Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h2 {
+            text-align: center;
+            margin-top: 30px;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0px 0px 10px #aaa;
+        }
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #004080;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #004080;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Student Attendance Details</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Course ID</th>
+                <th>Student Name</th>
+                <th>Student ID</th>
+                <th>Total Lectures</th>
+                <th>Lectures Attended</th>
+                <th>On-Duty Count</th>
+                <th>Attendance %</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{ student.course_id}}</td>
+                <td>{{ student.name }}</td>
+                <td>{{ student.id }}</td>
+                <td>{{ student.total_lectures }}</td>
+                <td>{{ student.lectures_attended }}</td>
+                <td>{{ student.on_duty }}</td>
+                <td>
+                    {% with total=student.total_lectures %}
+                        {% with present=student.lectures_attended|add:student.on_duty %}
+                            {% widthratio present total 100 as percentage %}
+                            {{ percentage|floatformat:2 }}%
+                        {% endwith %}
+                    {% endwith %}
+
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">No student data found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{% url 'teacher_dashboard' %}" class="back-link">&larr; Back to Dashboard</a>
+
+</body>
+</html>

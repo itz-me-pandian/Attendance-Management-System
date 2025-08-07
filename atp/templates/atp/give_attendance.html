@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Give Attendance</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f6ff;
+            padding: 30px;
+        }
+        .form-container {
+            max-width: 400px;
+            margin: auto;
+            background: #fff;
+            padding: 25px 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .form-container label {
+            font-weight: bold;
+        }
+        .form-container input[type="text"],
+        .form-container input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 20px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+        .form-container input[type="submit"] {
+            background-color: #0056b3;
+            color: white;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .form-container input[type="submit"]:hover {
+            background-color: #004494;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Give Attendance</h2>
+    <form method="post" action="{% url 'mark_attendance' %}">
+        {% csrf_token %}
+        
+        <label for="latitude">Latitude</label>
+        <input type="text" name="latitude" id="latitude" required>
+
+        <label for="longitude">Longitude</label>
+        <input type="text" name="longitude" id="longitude" required>
+
+        <input type="submit" value="Submit Attendance">
+    </form>
+</div>
+
+</body>
+</html>
