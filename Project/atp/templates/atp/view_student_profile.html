@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Profile</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f0f8ff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .profile-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            width: 400px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #007bff;
+            margin-bottom: 30px;
+        }
+
+        .info {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .info strong {
+            color: #333;
+            width: 150px;
+            display: inline-block;
+        }
+
+        .back-btn {
+            display: block;
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .back-btn button {
+            background-color: #6c757d;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .back-btn button:hover {
+            background-color: #5a6268;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <h2>Student Profile</h2>
+        <div class="info"><strong>First Name:</strong> {{ fname }}</div>
+        <div class="info"><strong>Middle Initial:</strong> {{ minit }}</div>
+        <div class="info"><strong>Last Name:</strong> {{ lname }}</div>
+        <div class="info"><strong>Student ID:</strong> {{ stud_id }}</div>
+        <div class="info"><strong>Dept ID:</strong> {{ dept_id }}</div>
+        <div class="info"><strong>Date of Birth:</strong> {{ dob }}</div>
+        <div class="info"><strong>Barcode:</strong> {{ barcode }}</div>
+
+        <div class="back-btn">
+            <form action="{% url 'student_dashboard' %}" method="get">
+                <button type="submit">← Back to Dashboard</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

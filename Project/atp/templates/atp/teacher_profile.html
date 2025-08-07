@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Teacher Profile</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f2f5f9;
+            padding: 50px;
+        }
+
+        .profile-container {
+            max-width: 600px;
+            margin: auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .profile-field {
+            margin-bottom: 15px;
+        }
+
+        .profile-field strong {
+            display: inline-block;
+            width: 160px;
+            color: #444;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4a90e2;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background-color: #357abd;
+        }
+
+        ul {
+            list-style-type: none; 
+            padding-left: 0;
+        }
+        li {
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <h2>Teacher Profile</h2>
+
+        <div class="profile-field"><strong>Teacher ID:</strong> {{ teacher_info.0 }}</div>
+        <div class="profile-field"><strong>First Name:</strong> {{ teacher_info.1 }}</div>
+        <div class="profile-field"><strong>Last Name:</strong> {{ teacher_info.2 }}</div>
+        <div class="profile-field"><strong>Email:</strong> {{ teacher_info.3 }}</div>
+        <div class="profile-field"><strong>Department:</strong> {{ teacher_info.4 }}</div>
+        <h4>Phone Numbers :</h4>
+
+        {% if teacher_phone %}
+            <ul>
+                {% for phone in teacher_phone %}
+                    <li>📞 {{ phone }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No phone numbers available</p>
+        {% endif %}
+
+        <a href="{% url 'teacher_dashboard' %}" class="back-btn">← Back to Dashboard</a>
+    </div>
+</body>
+</html>

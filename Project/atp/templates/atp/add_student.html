@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Student</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f7f9;
+      padding: 30px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #333;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+    }
+
+    input[type="text"],
+    input[type="date"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      margin-top: 25px;
+      width: 100%;
+      padding: 12px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .back-btn {
+      display: block;
+      margin: 20px auto 0;
+      text-align: center;
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .back-btn:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Add</h2>
+
+  <form action="{% url 'add_teacher_course_student' %}" method="post">
+    {% csrf_token %}
+    
+    <label for="stud_id">Student ID:</label>
+    <input type="text" id="stud_id" name="stud_id" required>
+
+    <label for="stud_id">Teacher ID:</label>
+    <input type="text" id="t_id" name="t_id" required>
+
+    <label for="stud_id">Course ID:</label>
+    <input type="text" id="course_id" name="course_id" required>
+
+    <!--label for="fname">First Name:</label>
+    <input type="text" id="fname" name="fname" required>
+
+    <label for="minit">Middle Initial:</label>
+    <input type="text" id="minit" name="minit" maxlength="1">
+
+    <label for="lname">Last Name:</label>
+    <input type="text" id="lname" name="lname" required>
+
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" name="dob" required>
+
+    <label for="dept_id">Department ID:</label>
+    <input type="text" id="dept_id" name="dept_id" required>
+
+    <label for="barcode">Barcode:</label>
+    <input type="text" id="barcode" name="barcode" required -->
+
+    <button type="submit">Add</button>
+  </form>
+
+  <a class="back-btn" href="{% url 'admin_dashboard' %}">← Back to Dashboard</a>
+</div>
+
+</body>
+</html>

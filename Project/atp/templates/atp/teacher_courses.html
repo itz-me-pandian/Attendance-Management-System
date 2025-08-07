@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Courses</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f5f7fa;
+            padding: 40px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 90%;
+            margin: 30px auto;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 14px 18px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4a90e2;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f0f0f0;
+        }
+
+        .btn {
+            padding: 6px 12px;
+            margin: 2px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .add-btn { background-color: #28a745; }
+        .edit-btn { background-color: #ffc107; color: black; }
+        .delete-btn { background-color: #dc3545; }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+            text-decoration: none;
+            color: #4a90e2;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h2>My Courses</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Course Name</th>
+                <th>Course ID</th>
+                <th>Total Lectures</th>
+                <th>Lectures Taken</th>
+                <th>Lectures Left</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for course in courses %}
+            <tr>
+                <td>{{ course.name }}</td>
+                <td>{{ course.id }}</td>
+                <td>{{ course.total_lectures }}</td>
+                <td>{{ course.lectures_taken }}</td>
+                <td>{{ course.lectures_left }}</td>
+                <td>
+                    <form action="{% url 'add_lecture' %}" method="get" style="display:inline;">
+                        <button type="submit" class="btn add-btn">Add</button>
+                    </form>
+                    <form action="{% url 'update_lecture' %}" method="get" style="display:inline;">
+                        <button type="submit" class="btn edit-btn">Update</button>
+                    </form>
+                    <form action="{% url 'delete_lecture' %}" method="post" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn delete-btn" onclick="return confirm('Are you sure to delete?');">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6">No courses assigned yet.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{% url 'teacher_dashboard' %}" class="back-link">← Back to Dashboard</a>
+</body>
+</html>

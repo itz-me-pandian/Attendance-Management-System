@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Give Attendance</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f6ff;
+            padding: 30px;
+        }
+        .form-container {
+            max-width: 400px;
+            margin: auto;
+            background: #fff;
+            padding: 25px 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .form-container label {
+            font-weight: bold;
+        }
+        .form-container input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 20px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+        .button-link {
+            display: block;
+            text-align: center;
+            background-color: #0056b3;
+            color: white;
+            padding: 10px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .button-link:hover {
+            background-color: #004494;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Give Attendance</h2>
+    
+    <form method="post" action="{% url 'add_attendance' %}">
+        {% csrf_token %}
+        
+        <input type="hidden" name="lecture_id" value="{{ lecture.l_id }}">
+    
+        <label for="latitude">Latitude</label>
+        <input type="text" name="latitude" id="latitude" required>
+    
+        <label for="longitude">Longitude</label>
+        <input type="text" name="longitude" id="longitude" required>
+    
+        <button type="submit" class="button-link">Submit Attendance</button>
+    </form>
+    
+</div>
+
+</body>
+</html>

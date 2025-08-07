@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Today's Lectures</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f4f6f9;
+            padding: 40px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 14px 18px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .back-btn {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .back-btn button {
+            background-color: #6c757d;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .back-btn button:hover {
+            background-color: #5a6268;
+        }
+    </style>
+</head>
+<body>
+    <h2>Today's Lectures</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Course Name</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Duration</th>
+                <th>Lecturer</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for lecture in lectures %}
+            <tr>
+                <td>{{ lecture.course_name }}</td>
+                <td>{{ lecture.start_time }}</td>
+                <td>{{ lecture.end_time }}</td>
+                <td>{{ lecture.duration }}</td>
+                <td>{{ lecture.lecturer }}</td>
+                <td>{{ lecture.date }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="back-btn">
+        <form action="{% url 'student_dashboard' %}" method="get">
+            <button type="submit">← Back to Dashboard</button>
+        </form>
+    </div>
+</body>
+</html>

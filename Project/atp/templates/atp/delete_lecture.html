@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Lecture</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f9fafa;
+            padding: 40px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #d9534f;
+        }
+
+        form {
+            width: 40%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 12px 20px;
+            background-color: #d9534f;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #c9302c;
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 25px;
+            text-align: center;
+            color: #5a5a5a;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Delete Lecture</h2>
+
+    <form action="{% url 'delete_existing_lecture' %}" method="post">
+        {% csrf_token %}
+
+        <label for="l_date">Lecture Date (L_DATE)</label>
+        <input type="date" id="l_date" name="l_date" required>
+
+        <label for="s_time">Start Time (S_TIME)</label>
+        <input type="time" id="s_time" name="s_time" required>
+
+        <button type="submit">Delete Lecture</button>
+    </form>
+
+    <a href="{% url 'teacher_courses' %}" class="back-link">← Back to My Courses</a>
+
+</body>
+</html>

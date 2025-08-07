@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Lecture</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #eef2f7;
+            padding: 40px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            width: 60%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        label {
+            display: block;
+            margin: 15px 0 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="datetime-local"],
+        input[type="date"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 12px 20px;
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #3b7dc4;
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 25px;
+            text-align: center;
+            color: #4a90e2;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h2>Update Lecture</h2>
+
+    <form action="{% url 'update_existing_lecture' %}" method="post">
+        {% csrf_token %}
+
+        <label for="l_id">Lecture ID (L_ID)</label>
+        <input type="text" id="l_id" name="l_id" required>
+
+        <label for="s_time">Start Time (S_TIME)</label>
+        <input type="datetime-local" id="s_time" name="s_time">
+
+        <label for="e_time">End Time (E_TIME)</label>
+        <input type="datetime-local" id="e_time" name="e_time">
+
+        <label for="l_date">Lecture Date (L_DATE)</label>
+        <input type="date" id="l_date" name="l_date">
+
+        <label for="lattitude">Lattitude</label>
+        <input type="number" step="0.000001" id="lattitude"  value="12.971599" name="lattitude">
+
+        <label for="longitude">Longitude</label>
+        <input type="number" step="0.000001" id="longitude" value ="77.594566" name="longitude">
+
+        <button type="submit">Update Lecture</button>
+    </form>
+
+    <a href="{% url 'teacher_courses' %}" class="back-link">← Back to My Courses</a>
+</body>
+</html>
