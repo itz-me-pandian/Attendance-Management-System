@@ -237,10 +237,7 @@ sequenceDiagram
 
     Developer->>Django: 1. Start web server (runserver)
     Django->>SettingsFile: 2. Reads all configurations from settings.py
-    Note over Django: 3. "Okay, I know my SECRET_KEY, DEBUG status,
-                        all INSTALLED_APPS, MIDDLEWARE order,
-                        where to find URLs, TEMPLATES, STATIC files,
-                        and critically, how to connect to the DATABASES."
+    Note over Django: 3. "Okay, I know my SECRET_KEY, DEBUG status, all INSTALLED_APPS, MIDDLEWARE order, where to find URLs, TEMPLATES, STATIC files, and critically, how to connect to the DATABASES."
     Django->>Database: 4. Establishes database connection using DATABASES config
     Note over Django: 5. Initializes apps, middleware, URL dispatcher based on settings
     Django-->>Developer: 6. Server ready and running!
@@ -323,5 +320,6 @@ Understanding `settings.py` is fundamental because it orchestrates how all the d
 Now that we've covered the entire software side of our system, from data organization to overall configuration, let's look at one final, powerful database feature that adds automated intelligence to our data: [Database Triggers (Automated Data Rules)](08_database_triggers__automated_data_rules__.md).
 
 ---
+
 
 <sub><sup>**References**: [[1]](https://github.com/itz-me-pandian/Attendance-Management-System/blob/904ec3a6902ecfc89889f8f4ac3dfbb2dcd8e182/Project/atmt/asgi.py), [[2]](https://github.com/itz-me-pandian/Attendance-Management-System/blob/904ec3a6902ecfc89889f8f4ac3dfbb2dcd8e182/Project/atmt/settings.py), [[3]](https://github.com/itz-me-pandian/Attendance-Management-System/blob/904ec3a6902ecfc89889f8f4ac3dfbb2dcd8e182/Project/atmt/wsgi.py)</sup></sub>
