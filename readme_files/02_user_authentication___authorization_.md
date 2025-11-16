@@ -132,8 +132,7 @@ sequenceDiagram
 
     User->>WebBrowser: 1. Enters Name and Student ID in login form
     WebBrowser->>AttendanceSystem: 2. Sends login request (Name, Student ID)
-    Note over AttendanceSystem: 3. Extracts Name and Student ID from request.
-                                 Splits Name into First Name and Last Name.
+    Note over AttendanceSystem: 3. Extracts Name and Student ID from request. Splits Name into First Name and Last Name.
     AttendanceSystem->>Database: 4. "Check if (First Name, Last Name, Student ID) exists in 'student' table?"
     Database-->>AttendanceSystem: 5. Returns Student data (if found) or nothing
     alt Student Found (Authenticated)
@@ -252,5 +251,6 @@ These mechanisms are the gatekeepers of our Attendance Management System, ensuri
 Now that we know who can access the system and what they can do, the next step is to understand the heart of the system: how attendance is actually managed. In the next chapter, we'll dive into [Attendance Management Core Logic](03_attendance_management_core_logic_.md).
 
 ---
+
 
 <sub><sup>**References**: [[1]](https://github.com/itz-me-pandian/Attendance-Management-System/blob/904ec3a6902ecfc89889f8f4ac3dfbb2dcd8e182/Project/atp/templates/atp/admin_login.html), [[2]](https://github.com/itz-me-pandian/Attendance-Management-System/blob/904ec3a6902ecfc89889f8f4ac3dfbb2dcd8e182/Project/atp/templates/atp/student_login.html), [[3]](https://github.com/itz-me-pandian/Attendance-Management-System/blob/904ec3a6902ecfc89889f8f4ac3dfbb2dcd8e182/Project/atp/templates/atp/teacher_login.html), [[4]](https://github.com/itz-me-pandian/Attendance-Management-System/blob/904ec3a6902ecfc89889f8f4ac3dfbb2dcd8e182/Project/atp/views.py), [[5]](https://github.com/itz-me-pandian/Attendance-Management-System/blob/904ec3a6902ecfc89889f8f4ac3dfbb2dcd8e182/inputs/table.sql)</sup></sub>
