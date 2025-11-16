@@ -138,11 +138,9 @@ sequenceDiagram
 
     User->>WebBrowser: 1. Types 'localhost:8000/student_login/'
     WebBrowser->>MainURLs: 2. Sends request for '/student_login/'
-    Note over MainURLs: 3. Looks at urlpatterns.
-                        Finds path('', include('atp.urls'))
+    Note over MainURLs: 3. Looks at urlpatterns. Finds path('', include('atp.urls'))
     MainURLs->>AppURLs: 4. Directs request to 'atp/urls.py'
-    Note over AppURLs: 5. Looks at urlpatterns for 'atp' app.
-                       Finds path('student_login/', views.student_login, ...)
+    Note over AppURLs: 5. Looks at urlpatterns for 'atp' app. Finds path('student_login/', views.student_login, ...)
     AppURLs->>ViewFunction: 6. Calls the 'student_login' view function
     Note over ViewFunction: 7. View renders 'student_login.html' template
     ViewFunction-->>WebBrowser: 8. Sends back the HTML page
@@ -217,5 +215,6 @@ In this chapter, we've demystified **URL Routing**. We learned that it's the app
 Now that we understand how requests are routed to the correct code, the next step is to explore the overall setup and configuration that makes our Django project run smoothly. In the next chapter, we'll dive into [Django Project Configuration](07_django_project_configuration_.md).
 
 ---
+
 
 <sub><sup>**References**: [[1]](https://github.com/itz-me-pandian/Attendance-Management-System/blob/904ec3a6902ecfc89889f8f4ac3dfbb2dcd8e182/Project/atmt/urls.py), [[2]](https://github.com/itz-me-pandian/Attendance-Management-System/blob/904ec3a6902ecfc89889f8f4ac3dfbb2dcd8e182/Project/atp/urls.py)</sup></sub>
