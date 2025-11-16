@@ -120,15 +120,11 @@ sequenceDiagram
 
     Arjun->>WebBrowser: 1. Tries to mark attendance for Lecture L007
     WebBrowser->>AttendanceSystem: 2. Sends request (stud_id='2370001', l_id='L007', etc.)
-    Note over AttendanceSystem: 3. Django App processes request (views.py).
-                                 Prepares an INSERT statement for attendance.
+    Note over AttendanceSystem: 3. Django App processes request (views.py). Prepares an INSERT statement for attendance.
     AttendanceSystem->>Database: 4. Attempts "INSERT INTO attendance (stud_id, l_id, ...)"
     Note over Database: 5. Database sees "BEFORE INSERT on attendance" trigger.
     Database->>Trigger: 6. Activates stud_attendance_trigger (passes :NEW data)
-    Note over Trigger: 7. Trigger checks:
-                       - Is Lecture L007 valid? (Yes)
-                       - What's Course ID for L007? (e.g., C101)
-                       - Is '2370001' enrolled in C101? (No!)
+    Note over Trigger: 7. Trigger checks:<br>- Is Lecture L007 valid? (Yes) <br> - What's Course ID for L007? (e.g., C101) <br> - Is '2370001' enrolled in C101? (No!)
     Trigger--xTrigger: 8. Finds rule violation
     Trigger->>Database: 9. Raises "STUDENT NOT ENROLLED IN THIS COURSE" error
     Database--xAttendanceSystem: 10. Rejects INSERT, returns error message
@@ -191,13 +187,11 @@ sequenceDiagram
 
     Teacher->>WebBrowser: 1. Fills "Add Lecture" form for Course C001
     WebBrowser->>AttendanceSystem: 2. Sends lecture details (t_id='T003', course_id='C001', etc.)
-    Note over AttendanceSystem: 3. Django App performs conflict checks (from Chapter 4).
-                                 If no conflicts, prepares an INSERT statement for lecture.
+    Note over AttendanceSystem: 3. Django App performs conflict checks (from Chapter 4). If no conflicts, prepares an INSERT statement for lecture.
     AttendanceSystem->>Database: 4. Attempts "INSERT INTO lecture (l_id, s_time, ..., t_id, course_id)"
     Note over Database: 5. Database sees "BEFORE INSERT on lecture" trigger.
     Database->>Trigger: 6. Activates teacher_lecture (passes :NEW data)
-    Note over Trigger: 7. Trigger checks:
-                       - Is T003 assigned to C001 in teacher_course? (No!)
+    Note over Trigger: 7. Trigger checks: <br> - Is T003 assigned to C001 in teacher_course? (No!)
     Trigger--xTrigger: 8. Finds rule violation
     Trigger->>Database: 9. Raises "TEACHER NOT ASSIGNED TO THIS COURSE" error
     Database--xAttendanceSystem: 10. Rejects INSERT, returns error message
@@ -260,3 +254,4 @@ Triggers provide a robust, database-level safety net, ensuring that even if appl
 ---
 
 <sub><sup>**References**: [[1]](https://github.com/itz-me-pandian/Attendance-Management-System/blob/904ec3a6902ecfc89889f8f4ac3dfbb2dcd8e182/inputs/input.sql), [[2]](https://github.com/itz-me-pandian/Attendance-Management-System/blob/904ec3a6902ecfc89889f8f4ac3dfbb2dcd8e182/inputs/trigger_for_creating_lecture.sql), [[3]](https://github.com/itz-me-pandian/Attendance-Management-System/blob/904ec3a6902ecfc89889f8f4ac3dfbb2dcd8e182/inputs/trigger_for_inserting_attendance_row.sql), [[4]](https://github.com/itz-me-pandian/Attendance-Management-System/blob/904ec3a6902ecfc89889f8f4ac3dfbb2dcd8e182/inputs/trigger_for_teacher_student_link.sql)</sup></sub>
+
