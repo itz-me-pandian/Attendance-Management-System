@@ -161,13 +161,10 @@ sequenceDiagram
 
     Arjun->>WebBrowser: 1. Clicks "View My Profile" link
     WebBrowser->>AttendanceSystem: 2. Sends request to '/student/profile/'
-    Note over AttendanceSystem: 3. The 'view_student_profile' function starts.
-                                 It retrieves Arjun's 'student_id' from the session.
+    Note over AttendanceSystem: 3. The 'view_student_profile' function starts. It retrieves Arjun's 'student_id' from the session.
     AttendanceSystem->>Database: 4. "SELECT * FROM student WHERE stud_id = 'ArjunID'"
     Database-->>AttendanceSystem: 5. Returns Arjun's profile data
-    Note over AttendanceSystem: 6. Formats data into a dictionary.
-                                 Loads 'view_student_profile.html' template.
-                                 Puts Arjun's data into the HTML.
+    Note over AttendanceSystem: 6. Formats data into a dictionary. Loads 'view_student_profile.html' template. Puts Arjun's data into the HTML.
     AttendanceSystem-->>WebBrowser: 7. Sends completed HTML page
     WebBrowser->>Arjun: 8. Displays "My Student Profile" page with Arjun's details
 ```
@@ -221,5 +218,6 @@ In this chapter, we've understood the vital role of **Application Logic (Views)*
 They are the central point where the user interface meets the database, making our application truly interactive. Now that we know what views are and what they do, the next logical step is to understand how our system knows *which* view to call for *which* request. In the next chapter, we'll learn about [URL Routing](06_url_routing_.md).
 
 ---
+
 
 <sub><sup>**References**: [[1]](https://github.com/itz-me-pandian/Attendance-Management-System/blob/904ec3a6902ecfc89889f8f4ac3dfbb2dcd8e182/Project/atp/views.py)</sup></sub>
