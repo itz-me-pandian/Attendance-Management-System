@@ -98,8 +98,7 @@ from django.http import HttpResponse
 # Helper function to check for scheduling conflicts
 def check_lecture_conflict(t_id, l_date, s_time_str, e_time_str):
     # This helper function converts string times to datetime objects for comparison
-    # It queries the database to see if the teacher (t_id) has any existing lecture
-    # on l_date that overlaps with the proposed s_time_str and e_time_str.
+    # It queries the database to see if the teacher (t_id) has any existing lecture on l_date that overlaps with the proposed s_time_str and e_time_str.
     # If conflicts are found, it returns an HttpResponse with an error, otherwise None.
     # ... (Actual implementation details would be here) ...
     pass # We'll see the full implementation shortly!
@@ -552,5 +551,6 @@ In this chapter, we explored the important capabilities teachers have for managi
 Understanding how lectures are managed by teachers sets the stage for how the entire system functions. Next, we'll broaden our perspective to understand the overall structure of how different parts of our application connect and display information to users in [Chapter 5: Application Logic (Views)](05_application_logic__views__.md).
 
 ---
+
 
 <sub><sup>**References**: [[1]](https://github.com/itz-me-pandian/Attendance-Management-System/blob/904ec3a6902ecfc89889f8f4ac3dfbb2dcd8e182/Project/atp/templates/atp/add_lecture.html), [[2]](https://github.com/itz-me-pandian/Attendance-Management-System/blob/904ec3a6902ecfc89889f8f4ac3dfbb2dcd8e182/Project/atp/templates/atp/delete_lecture.html), [[3]](https://github.com/itz-me-pandian/Attendance-Management-System/blob/904ec3a6902ecfc89889f8f4ac3dfbb2dcd8e182/Project/atp/templates/atp/update_lecture.html), [[4]](https://github.com/itz-me-pandian/Attendance-Management-System/blob/904ec3a6902ecfc89889f8f4ac3dfbb2dcd8e182/Project/atp/views.py), [[5]](https://github.com/itz-me-pandian/Attendance-Management-System/blob/904ec3a6902ecfc89889f8f4ac3dfbb2dcd8e182/inputs/insert_lectures.sql), [[6]](https://github.com/itz-me-pandian/Attendance-Management-System/blob/904ec3a6902ecfc89889f8f4ac3dfbb2dcd8e182/inputs/trigger_for_creating_lecture.sql)</sup></sub>
