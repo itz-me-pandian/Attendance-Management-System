@@ -189,15 +189,13 @@ sequenceDiagram
 
     Arjun->>Web Browser: 1. Clicks "Mark Attendance"
     Web Browser->>Attendance System: 2. Requests list of today's lectures for Arjun
-    Note over Attendance System: 3. Retrieves Arjun's ID from session.
-                                 Queries Database for enrolled lectures today.
+    Note over Attendance System: 3. Retrieves Arjun's ID from session. Queries Database for enrolled lectures today.
     Attendance System->>Database: 4. "SELECT lectures for student X for today not yet attended"
     Database-->>Attendance System: 5. Returns list of available lectures
     Attendance System-->>Web Browser: 6. Displays lectures in a table
     Arjun->>Web Browser: 7. Selects a lecture, provides location (or allows browser to get it), clicks "Submit Attendance"
     Web Browser->>Attendance System: 8. Sends (Lecture ID, Student Location)
-    Note over Attendance System: 9. Retrieves Lecture ID.
-                                 Gets lecture's registered location from Database.
+    Note over Attendance System: 9. Retrieves Lecture ID. Gets lecture's registered location from Database.
     Attendance System->>Database: 10. "SELECT location FROM lecture WHERE l_id = Y"
     Database-->>Attendance System: 11. Returns lecture's (Latitude, Longitude)
     Note over Attendance System: 12. Compares student location with lecture location.
@@ -397,5 +395,6 @@ In this chapter, we've explored the core logic behind our Attendance Management 
 Understanding this core logic is key, as it's the main function of our application. Next, we'll dive deeper into how teachers specifically manage the creation and modification of lectures in [Chapter 4: Lecture Management (Teacher-Specific)](04_lecture_management__teacher_specific__.md).
 
 ---
+
 
 <sub><sup>**References**: [[1]](https://github.com/itz-me-pandian/Attendance-Management-System/blob/904ec3a6902ecfc89889f8f4ac3dfbb2dcd8e182/Project/atp/templates/atp/give_attendance.html), [[2]](https://github.com/itz-me-pandian/Attendance-Management-System/blob/904ec3a6902ecfc89889f8f4ac3dfbb2dcd8e182/Project/atp/templates/atp/mark_attendance.html), [[3]](https://github.com/itz-me-pandian/Attendance-Management-System/blob/904ec3a6902ecfc89889f8f4ac3dfbb2dcd8e182/Project/atp/templates/atp/view_my_attendance.html), [[4]](https://github.com/itz-me-pandian/Attendance-Management-System/blob/904ec3a6902ecfc89889f8f4ac3dfbb2dcd8e182/Project/atp/views.py), [[5]](https://github.com/itz-me-pandian/Attendance-Management-System/blob/904ec3a6902ecfc89889f8f4ac3dfbb2dcd8e182/inputs/att.sql), [[6]](https://github.com/itz-me-pandian/Attendance-Management-System/blob/904ec3a6902ecfc89889f8f4ac3dfbb2dcd8e182/inputs/trigger_for_inserting_attendance_row.sql)</sup></sub>
