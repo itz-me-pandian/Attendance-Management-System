@@ -244,8 +244,7 @@ sequenceDiagram
 
     Teacher->>WebBrowser: 1. Fills "Add Lecture" form
     WebBrowser->>AttendanceSystem: 2. Sends lecture details (POST request)
-    Note over AttendanceSystem: 3. Extracts teacher ID from session.
-                                 Parses lecture details.
+    Note over AttendanceSystem: 3. Extracts teacher ID from session. Parses lecture details.
     AttendanceSystem->>AttendanceSystem: 4. Calls check_lecture_conflict()
     AttendanceSystem->>Database: 5. "SELECT lectures for T_ID on L_DATE that overlap with new S_TIME, E_TIME?"
     Database-->>AttendanceSystem: 6. Returns conflicting lectures (if any)
@@ -554,3 +553,4 @@ Understanding how lectures are managed by teachers sets the stage for how the en
 
 
 <sub><sup>**References**: [[1]](https://github.com/itz-me-pandian/Attendance-Management-System/blob/904ec3a6902ecfc89889f8f4ac3dfbb2dcd8e182/Project/atp/templates/atp/add_lecture.html), [[2]](https://github.com/itz-me-pandian/Attendance-Management-System/blob/904ec3a6902ecfc89889f8f4ac3dfbb2dcd8e182/Project/atp/templates/atp/delete_lecture.html), [[3]](https://github.com/itz-me-pandian/Attendance-Management-System/blob/904ec3a6902ecfc89889f8f4ac3dfbb2dcd8e182/Project/atp/templates/atp/update_lecture.html), [[4]](https://github.com/itz-me-pandian/Attendance-Management-System/blob/904ec3a6902ecfc89889f8f4ac3dfbb2dcd8e182/Project/atp/views.py), [[5]](https://github.com/itz-me-pandian/Attendance-Management-System/blob/904ec3a6902ecfc89889f8f4ac3dfbb2dcd8e182/inputs/insert_lectures.sql), [[6]](https://github.com/itz-me-pandian/Attendance-Management-System/blob/904ec3a6902ecfc89889f8f4ac3dfbb2dcd8e182/inputs/trigger_for_creating_lecture.sql)</sup></sub>
+
